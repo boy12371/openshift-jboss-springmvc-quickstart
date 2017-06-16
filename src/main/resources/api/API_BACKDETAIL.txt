@@ -1,0 +1,88 @@
+请求URL:	http://61.160.41.33:8080/finance/reservation/backDetail
+请求描述: 预约中心 商家反馈的商家报价信息
+
+		在报价中的反馈详情页 id 和 sellerUserId 都必须要填 同reservation/backDetail方法
+		
+		待确认情况下的反馈详情页 id是必须要填的 sellerUserId可不填 
+请求方式:	GET
+请求参数: 
+		Long id 预约id 必填
+		http://61.160.41.33:8080/finance/reservation/backDetail?id=104&sellerUserId=1
+
+预约状态:	reserveStatus
+ 0:预约中【预约中心 约单单】   3:待卖家添加流程(买家待确认)【预约中心 待确认】   1:预约成功   5:已取消   6:已过期
+
+传入上面的数据之后会返回以下结果
+Response Code 200
+
+返回结果示范:
+{
+  "success": true,
+  "msg": "查询信息成功",
+  "datas": {							#预约信息
+    "id": 104,
+    "createDate": "2017-05-15",
+    "updateDate": "2017-05-15",
+    "createTime": "2017-05-15 11:43:41",
+    "updateTime": "2017-05-15 02:59:26",
+    "userId": 1,
+    "title": "测试图片",
+    "serviceClassficationId": 36,
+    "startDate": "2017-05-15 11:43:00.0",
+    "endDate": "2017-12-15 11:43:00.0",
+    "serviceType": 1,						#预约类别(服务地点) 0表示来我这里,1表示去他那里,2不限地理位置
+    "expectPrice": 466,
+    "description": "龙凤",
+    "reserveCode": "1310170515000006",
+    "reserveStatus": 3,
+    "reserveAddressId": 0,
+    "isNeedProviceInvoice": 1,
+    "isActive": 1,
+    "serviceClassfication": {
+      "classficationName": "商标代理"
+    },
+    "reservePhotos": [
+      {
+        "id": 72,
+        "reserveId": 104,
+        "pic": "",
+        "postion": 1
+      }
+    ],
+    "reserveProvinces": [],
+    "sellerGrabOrders": [					#抢单信息
+      {
+        "id": 16,
+        "createTime": "2017-04-09 02:54:02",
+        "updateTime": "2017-04-09 04:11:37",
+        "sellerUserId": 1,					#商家用户编码
+        "reserveId": 104,					#预约编码
+        "grapStauts": 0,
+        "fees": [							#报价信息
+          {
+            "id": 111,
+            "feeName": "89",				#名称
+            "refundMoney": 9				#金额
+          }
+        ],
+        "user": {				#商家信息
+          "id": 1,				#商家用户编码
+          "userName": "张三",		#用户名
+          "nickName": "ssd",	#昵称
+          "telphone": "13262291886",	#电话
+          "logUrl": "photo/view?imgSourceName=users/87322dc924ba46cf930e38a0ba64f198.png",	#头像
+          "userType": 2			#商家标识
+        }
+      }
+    ],
+    "pic": "",
+    "serviceProvinces": [],
+    "flags": [
+      "商标代理",
+      "去他那里",
+      "要发票"
+    ]
+  },
+  "code": 1,
+  "responseMap": {}
+}
