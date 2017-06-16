@@ -11,6 +11,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 @Controller
 @RequestMapping(value="/")
@@ -22,8 +24,7 @@ public class MemberController
     @RequestMapping(method=RequestMethod.GET)
     public String displaySortedMembers(Model model)
     {
-        String classPath = this.getClass().getClassLoader().getResource("classpath:api/API_BACKDETAIL.txt").getPath();
-        System.out.println("classPath: " + classPath);
+        System.out.println("classPath: " + ServletActionContext.getServletContext().getRealPath(“/”));
         model.addAttribute("newMember", new Member());
         model.addAttribute("members", memberDao.findAllOrderedByName());
         return "index";
