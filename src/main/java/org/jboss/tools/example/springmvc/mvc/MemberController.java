@@ -1,6 +1,6 @@
 package org.jboss.tools.example.springmvc.mvc;
 
- import javax.validation.Valid;
+import javax.validation.Valid;
 
 import org.jboss.tools.example.springmvc.domain.Member;
 import org.jboss.tools.example.springmvc.repo.MemberDao;
@@ -22,8 +22,7 @@ public class MemberController
     @RequestMapping(method=RequestMethod.GET)
     public String displaySortedMembers(Model model)
     {
-        String classPath = this.getClass().getClassLoader().getResource("/api").getPath();
-        System.out.println("classPath:" + classPath);
+        System.out.println("jboss.server.deploy.dir : " + System.getProperty("jboss.server.deploy.dir"));  
         model.addAttribute("newMember", new Member());
         model.addAttribute("members", memberDao.findAllOrderedByName());
         return "index";
