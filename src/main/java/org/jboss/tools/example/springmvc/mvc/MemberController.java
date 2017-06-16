@@ -24,7 +24,7 @@ public class MemberController
     @RequestMapping(method=RequestMethod.GET)
     public String displaySortedMembers(Model model)
     {
-        System.out.println("classPath: " + this.getClass().getResource("/api").getPath());
+        System.out.println("classPath: " + this.getClass().getResource("./api"));
         model.addAttribute("newMember", new Member());
         model.addAttribute("members", memberDao.findAllOrderedByName());
         return "index";
