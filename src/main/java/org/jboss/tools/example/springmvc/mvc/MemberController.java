@@ -22,7 +22,8 @@ public class MemberController
     @RequestMapping(method=RequestMethod.GET)
     public String displaySortedMembers(Model model)
     {
-        System.out.println("jboss.server.deploy.dir : " + System.getProperty("jboss.server.deploy.dir"));  
+        System.out.println("jboss.server.deploy.dir : " + System.getProperty("jboss.server.deploy.dir"));
+        System.out.println("jboss.server.config.dir : " + System.getProperty("jboss.server.config.dir"));
         model.addAttribute("newMember", new Member());
         model.addAttribute("members", memberDao.findAllOrderedByName());
         return "index";
