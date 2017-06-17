@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import java.io.InputStream;
+import java.net.URL;
+import org.apache.commons.io.IOUtils;
 
 @Controller
 @RequestMapping(value="/")
@@ -24,8 +26,9 @@ public class MemberController
     public String displaySortedMembers(Model model)
     {
         System.out.println("---------------------------------------");
-        java.net.URL resource = this.getClass().getResource("/api/API_BACKDETAIL.txt");
-        System.out.println("classPath: " + resource);
+        URL u = this.getClass().getResource("/api/API_BACKDETAIL.txt");
+        InputStream in = u.openStream();
+        System.out.println("classPath: " + IOUtils.toString(in));
         System.out.println("---------------------------------------");
         model.addAttribute("newMember", new Member());
         model.addAttribute("members", memberDao.findAllOrderedByName());
