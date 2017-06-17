@@ -24,6 +24,15 @@ public class MemberController
     @RequestMapping(method=RequestMethod.GET)
     public String displaySortedMembers(Model model)
     {
+        System.out.println("init");
+		System.out.println(this.getClass().getClassLoader().getResourceAsStream("api/API_BACKDETAIL.txt"));
+		System.out.println(this.getClass().getClassLoader().getResourceAsStream("applicationContext.xml"));
+		System.out.println(this.getClass().getResourceAsStream("/applicationContext.xml"));
+		System.out.println(Thread.currentThread().getContextClassLoader().getResourceAsStream("applicationContext.xml"));
+		System.out.println(this.getClass().getResource("/"));
+		System.out.println(this.getClass().getClassLoader().getResource(""));
+		this.getClass().getClassLoader();
+		System.out.println(ClassLoader.getSystemClassLoader());
         System.out.println("classPath: " + this.getClass().getResource("./"));
         model.addAttribute("newMember", new Member());
         model.addAttribute("members", memberDao.findAllOrderedByName());
