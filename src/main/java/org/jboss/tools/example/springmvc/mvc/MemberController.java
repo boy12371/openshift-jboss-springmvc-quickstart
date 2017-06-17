@@ -28,7 +28,11 @@ public class MemberController
         System.out.println("---------------------------------------");
         URL u = this.getClass().getResource("/api/API_BACKDETAIL.txt");
         InputStream in = u.openStream();
-        System.out.println("classPath: " + IOUtils.toString(in));
+        try {
+            System.out.println("classPath: " + IOUtils.toString(in));
+        } finally {
+			IOUtils.closeQuietly(in);
+		}
         System.out.println("---------------------------------------");
         model.addAttribute("newMember", new Member());
         model.addAttribute("members", memberDao.findAllOrderedByName());
