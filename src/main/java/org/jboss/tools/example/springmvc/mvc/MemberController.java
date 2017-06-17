@@ -23,7 +23,7 @@ public class MemberController
     @RequestMapping(method=RequestMethod.GET)
     public String displaySortedMembers(Model model)
     {
-        String resource = "/api/API_BACKDETAIL.txt";
+        String resource = "api/API_BACKDETAIL.txt";
         InputStream is = this.getClass().getClassLoader().getResourceAsStream(resource);
         String file = this.getClass().getClassLoader().getResource(resource).getFile();
         System.out.println("classPath: " + file);
