@@ -24,7 +24,7 @@ public class MemberController
     public String displaySortedMembers(Model model)
     {
         System.out.println("---------------------------------------");
-        java.net.URL resource = this.getClass().getResource("classpath*:/api/API_BACKDETAIL.txt");
+        java.net.URL resource = this.getClass().getResource("/api/API_BACKDETAIL.txt");
         System.out.println("classPath: " + resource);
         System.out.println("---------------------------------------");
         model.addAttribute("newMember", new Member());
