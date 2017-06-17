@@ -27,8 +27,9 @@ public class MemberController
     {
         System.out.println("---------------------------------------");
         URL u = this.getClass().getResource("/api/API_BACKDETAIL.txt");
+        InputStream in = null;
         try {
-            InputStream in = u.openStream();
+            in = u.openStream();
             System.out.println("classPath: " + IOUtils.toString(in));
         } finally {
 			IOUtils.closeQuietly(in);
