@@ -28,8 +28,7 @@ public class MemberController
     public String displaySortedMembers(Model model)
     {
         System.out.println("---------------------------------------");
-        URL u = this.getClass().getResource("/api/API_BACKDETAIL.txt");
-        InputStream in = null;
+        InputStream in = this.getClass().getResourceAsStream("/api/API_BACKDETAIL.txt");
         try {
             in = u.openStream();
             System.out.println("classPath: " + IOUtils.toString(in, "UTF-8"));
