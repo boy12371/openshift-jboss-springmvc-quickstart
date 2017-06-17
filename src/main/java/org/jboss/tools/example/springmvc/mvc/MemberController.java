@@ -23,10 +23,8 @@ public class MemberController
     @RequestMapping(method=RequestMethod.GET)
     public String displaySortedMembers(Model model)
     {
-        String resource = "classpath:api/API_BACKDETAIL.txt";
-        InputStream is = this.getClass().getClassLoader().getResourceAsStream(resource);
-        String filePath = this.getClass().getClassLoader().getResource(resource).getFile();
-        System.out.println("classPath: " + filePath);
+        String classPath = this.getClass().getResource("/api").getPath();
+        System.out.println("classPath: " + classPath);
         model.addAttribute("newMember", new Member());
         model.addAttribute("members", memberDao.findAllOrderedByName());
         return "index";
