@@ -30,7 +30,6 @@ public class MemberController
         System.out.println("---------------------------------------");
         InputStream in = this.getClass().getResourceAsStream("/api/API_BACKDETAIL.txt");
         try {
-            in = u.openStream();
             System.out.println("classPath: " + IOUtils.toString(in, "UTF-8"));
         } catch (IOException e) {
             e.printStackTrace();
