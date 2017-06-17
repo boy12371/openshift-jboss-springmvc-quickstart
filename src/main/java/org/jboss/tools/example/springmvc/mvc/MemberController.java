@@ -11,8 +11,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import java.io.InputStream;
+
 import java.net.URL;
+import java.io.IOException;
+import java.io.InputStream;
 import org.apache.commons.io.IOUtils;
 
 @Controller
