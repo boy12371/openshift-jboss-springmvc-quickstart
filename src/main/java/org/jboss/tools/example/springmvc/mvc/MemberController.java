@@ -11,8 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import java.io.InputStream;
 
 @Controller
 @RequestMapping(value="/")
@@ -24,7 +23,10 @@ public class MemberController
     @RequestMapping(method=RequestMethod.GET)
     public String displaySortedMembers(Model model)
     {
-        System.out.println("classPath: " + this.getClass().getClassLoader().getResourceAsStream("./api/API_BACKDETAIL.txt"));
+        String resource = "./api/API_BACKDETAIL.txt";
+        InputStream is = this.getClass().getClassLoader().getResourceAsStream(resource);
+        String file = this.getClass().getClassLoader().getResource(resource).getFile();
+        System.out.println("classPath: " + file);
         model.addAttribute("newMember", new Member());
         model.addAttribute("members", memberDao.findAllOrderedByName());
         return "index";
