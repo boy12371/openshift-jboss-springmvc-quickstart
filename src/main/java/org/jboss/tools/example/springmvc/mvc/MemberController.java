@@ -24,13 +24,19 @@ public class MemberController
     public String displaySortedMembers(Model model)
     {
         System.out.println("---------------------------------------");
-        System.out.println("Thread.currentThread().getContextClassLoader():");
-		System.out.println(Thread.currentThread().getContextClassLoader().getResource(""));
-        System.out.println("classPath: " + this.getClass().getResource("/api"));
-        System.out.println("---------------------------------------");
-		// 获取当前ClassPath的绝对URI路径
-		System.out.println("ClassLoader.getSystemResource:");
-		System.out.println(ClassLoader.getSystemResource(""));
+        String classPath = "";
+        try{
+            if(MemberController.class.getClassLoader().getResource("").getPath() != null && MemberController.class.getClassLoader().getResource("").getPath().indexOf("/WEB-INF/classes") > -1){
+                classPath = MemberController.class.getClassLoader().getResource("").getPath();
+            } else if(MemberController.class.getClassLoader().getResource("/").getPath() != null && MemberController.class.getClassLoader().getResource("/").getPath().indexOf("/WEB-INF/classes") > -1){
+                classPath = MemberController.class.getClassLoader().getResource("/").getPath();
+            } else if(MemberController.class.getResource("/").getPath() != null && MemberController.class.getResource("/").getPath().indexOf("/WEB-INF/classes") > -1){
+                classPath = MemberController.class.getResource("/").getPath();
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        System.out.println("classPath: " + classPath);
         System.out.println("---------------------------------------");
         model.addAttribute("newMember", new Member());
         model.addAttribute("members", memberDao.findAllOrderedByName());
