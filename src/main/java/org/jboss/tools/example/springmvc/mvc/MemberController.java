@@ -23,8 +23,15 @@ public class MemberController
     @RequestMapping(method=RequestMethod.GET)
     public String displaySortedMembers(Model model)
     {
-        String classPath = this.getClass().getResource("/api").getPath();
-        System.out.println("classPath: " + classPath);
+        System.out.println("---------------------------------------");
+        System.out.println("Thread.currentThread().getContextClassLoader():");
+		System.out.println(Thread.currentThread().getContextClassLoader().getResource(""));
+        System.out.println("classPath: " + this.getClass().getResource("/api"));
+        System.out.println("---------------------------------------");
+		// 获取当前ClassPath的绝对URI路径
+		System.out.println("ClassLoader.getSystemResource:");
+		System.out.println(ClassLoader.getSystemResource(""));
+        System.out.println("---------------------------------------");
         model.addAttribute("newMember", new Member());
         model.addAttribute("members", memberDao.findAllOrderedByName());
         return "index";
