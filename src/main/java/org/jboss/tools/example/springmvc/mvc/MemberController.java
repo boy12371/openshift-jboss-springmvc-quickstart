@@ -30,7 +30,9 @@ public class MemberController
         InputStream in = null;
         try {
             in = u.openStream();
-            System.out.println("classPath: " + IOUtils.toString(in));
+            System.out.println("classPath: " + IOUtils.toString(in, "UTF-8"));
+        } catch (IOException e) {
+            e.printStackTrace();
         } finally {
 			IOUtils.closeQuietly(in);
 		}
