@@ -24,19 +24,7 @@ public class MemberController
     public String displaySortedMembers(Model model)
     {
         System.out.println("---------------------------------------");
-        String classPath = "";
-        try{
-            if(MemberController.class.getClassLoader().getResource("").getPath() != null && MemberController.class.getClassLoader().getResource("").getPath().indexOf("/WEB-INF/classes") > -1){
-                classPath = MemberController.class.getClassLoader().getResource("").getPath();
-            } else if(MemberController.class.getClassLoader().getResource("/").getPath() != null && MemberController.class.getClassLoader().getResource("/").getPath().indexOf("/WEB-INF/classes") > -1){
-                classPath = MemberController.class.getClassLoader().getResource("/").getPath();
-            } else if(MemberController.class.getResource("/").getPath() != null && MemberController.class.getResource("/").getPath().indexOf("/WEB-INF/classes") > -1){
-                classPath = MemberController.class.getResource("/").getPath();
-            }
-        } catch(Exception e){
-            e.printStackTrace();
-        }
-        System.out.println("classPath: " + classPath);
+        System.out.println("classPath: " + this.getClass().getResource("/api"));
         System.out.println("---------------------------------------");
         model.addAttribute("newMember", new Member());
         model.addAttribute("members", memberDao.findAllOrderedByName());
