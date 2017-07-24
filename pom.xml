@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.jboss.tools.example.springmvc</groupId>
-    <artifactId>spring-eap6-quickstart</artifactId>
+
+    <groupId>org.jboss.springmvc</groupId>
+    <artifactId>springmvc-eap7-quickstart</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
-
-    <name>Quickstart for Spring Framework on OpenShift with JBoss EAP 6</name>
+    <name>${project.artifactId} - ${project.version}</name>
+    <url>https://developers.redhat.com</url>
 
     <properties>
-                <!-- Spring version -->
+        <!-- Spring version -->
         <version.spring>3.2.8.RELEASE</version.spring>
 
         <!-- Spring Third Party dependencies -->
@@ -23,7 +23,6 @@
 
         <!-- JBoss AS plugin for deployment -->
         <version.jboss.as.maven.plugin>7.1.1.Final</version.jboss.as.maven.plugin>
-
     </properties>
 
     <dependencyManagement>

@@ -1,9 +1,9 @@
-package org.jboss.tools.example.springmvc.mvc;
+package org.jboss.springmvc.mvc;
 
 import java.util.List;
 
-import org.jboss.tools.example.springmvc.domain.Member;
-import org.jboss.tools.example.springmvc.repo.MemberDao;
+import org.jboss.springmvc.domain.Member;
+import org.jboss.springmvc.repo.MemberDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

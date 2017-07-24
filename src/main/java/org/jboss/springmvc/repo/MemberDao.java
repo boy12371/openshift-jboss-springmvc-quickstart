@@ -1,8 +1,8 @@
-package org.jboss.tools.example.springmvc.repo;
+package org.jboss.springmvc.repo;
 
 import java.util.List;
 
-import org.jboss.tools.example.springmvc.domain.Member;
+import org.jboss.springmvc.domain.Member;
 
 public interface MemberDao
 {

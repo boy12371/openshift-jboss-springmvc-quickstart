@@ -1,4 +1,4 @@
-package org.jboss.tools.example.springmvc.repo;
+package org.jboss.springmvc.repo;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-import org.jboss.tools.example.springmvc.domain.Member;
+import org.jboss.springmvc.domain.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
