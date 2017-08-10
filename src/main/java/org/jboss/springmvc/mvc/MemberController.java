@@ -1,7 +1,11 @@
 package org.jboss.springmvc.mvc;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import javax.validation.Valid;
 
+import org.apache.commons.io.IOUtils;
 import org.jboss.springmvc.domain.Member;
 import org.jboss.springmvc.repo.MemberDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +15,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.net.URL;
-import java.io.IOException;
-import java.io.InputStream;
-import org.apache.commons.io.IOUtils;
 
 @Controller
 @RequestMapping(value="/")
